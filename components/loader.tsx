@@ -71,7 +71,7 @@ export default function Loader() {
         >
           <div className="bg-white/90 px-6 py-4 ">
             <Image
-              src="/images/logo-20png.png"
+              src="/images/new-logo-removebg-preview-ressized.png"
               alt="RetroHoopin Co."
               width={400}
               height={260}

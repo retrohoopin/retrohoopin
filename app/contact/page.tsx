@@ -41,7 +41,7 @@ function ContactForm() {
 
     // WhatsApp message
     const whatsappMessage = `New Order Request:%0A%0AName: ${formData.name}%0AEmail: ${formData.email}%0APhone: ${formData.phone}%0AProduct: ${formData.product}%0ASize: ${formData.size}%0AQuantity: ${formData.quantity}%0A%0AMessage: ${formData.message}`
-    const whatsappNumber = "9405001238" // Replace with your WhatsApp number
+    const whatsappNumber = "919405001238" // Replace with your WhatsApp number
 
     // Email subject and body
     const emailSubject = `Order Request: ${formData.product}`
