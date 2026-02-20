@@ -16,7 +16,7 @@ export default function Header() {
           {/* Logo - using actual user logo */}
           <Link href="/" className="flex items-center group">
             <div className="relative w-42 h-14 transition-all duration-300 group-hover:scale-105">
-              <Image src="/images/resized-logo.png" alt="RetroHoopin Co." fill className="object-contain" priority />
+              <Image src="/images/new-logo-removebg-preview-ressized.png" alt="RetroHoopin Co." fill className="object-contain" priority />
             </div>
           </Link>
 

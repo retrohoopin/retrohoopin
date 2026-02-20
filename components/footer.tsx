@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Instagram, Twitter, Facebook } from "lucide-react"
+import { Instagram, Twitter, Facebook, Mail } from "lucide-react"
 
 export default function Footer() {
   return (
@@ -10,7 +10,7 @@ export default function Footer() {
           {/* Logo and tagline */}
           <div className="col-span-1 md:col-span-2">
             <div className="relative w-36 h-12 mb-4">
-              <Image src="/images/resized-logo.png" alt="RetroHoopin Co." fill className="object-contain" priority />
+              <Image src="/images/new-logo-removebg-preview-ressized.png" alt="RetroHoopin Co." fill className="object-contain" priority />
             </div>
             <p className="text-gray-600 text-sm mb-4 max-w-md leading-relaxed">
               Premium basketball streetwear for those who live the game. Born on the courts, made for the streets.
@@ -35,13 +35,11 @@ export default function Footer() {
                 <Twitter className="w-5 h-5" />
               </a> */}
               <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="mailto:retrohoopin@gmail.com"
                 className="text-gray-600 hover:text-[#FF7518] transition-all duration-300 hover:scale-125 hover:-translate-y-1"
-                aria-label="Facebook"
+                aria-label="Email"
               >
-                <Facebook className="w-5 h-5" />
+                <Mail className="w-5 h-5" />
               </a>
             </div>
           </div>
