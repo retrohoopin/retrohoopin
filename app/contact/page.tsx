@@ -26,26 +26,33 @@ function ContactForm() {
     product: "",
     size: "",
     quantity: "1",
-    message: "",
+    address: "",
   })
 
   useEffect(() => {
-    const productParam = searchParams.get("product")
-    if (productParam) {
-      setFormData((prev) => ({ ...prev, product: productParam }))
+    const storedOrder = sessionStorage.getItem("orderData")
+
+    if (storedOrder) {
+      const order = JSON.parse(storedOrder)
+
+      setFormData((prev) => ({
+        ...prev,
+        product: order.product || "",
+        size: order.size || ""
+      }))
     }
-  }, [searchParams])
+  }, [])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
     // WhatsApp message
-    const whatsappMessage = `New Order Request:%0A%0AName: ${formData.name}%0AEmail: ${formData.email}%0APhone: ${formData.phone}%0AProduct: ${formData.product}%0ASize: ${formData.size}%0AQuantity: ${formData.quantity}%0A%0AMessage: ${formData.message}`
-    const whatsappNumber = "919405001238" // Replace with your WhatsApp number
+    const whatsappMessage = `New Order Request:%0A%0AName: ${formData.name}%0AEmail: ${formData.email}%0APhone: ${formData.phone}%0AProduct: ${formData.product}%0ASize: ${formData.size}%0AQuantity: ${formData.quantity}%0A%0AAddress: ${formData.address}`
+    const whatsappNumber = "917745051238" // Replace with your WhatsApp number
 
     // Email subject and body
     const emailSubject = `Order Request: ${formData.product}`
-    const emailBody = `Name: ${formData.name}%0AEmail: ${formData.email}%0APhone: ${formData.phone}%0AProduct: ${formData.product}%0ASize: ${formData.size}%0AQuantity: ${formData.quantity}%0A%0AMessage: ${formData.message}`
+    const emailBody = `Name: ${formData.name}%0AEmail: ${formData.email}%0APhone: ${formData.phone}%0AProduct: ${formData.product}%0ASize: ${formData.size}%0AQuantity: ${formData.quantity}%0A%0AAddress: ${formData.address}`
     const emailAddress = "retrohoopin@gmail.com" // Replace with your email
 
     // Open WhatsApp in new tab
@@ -169,8 +176,13 @@ function ContactForm() {
                       <SelectValue placeholder="Select a product" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="Retro Stripe Tee">GUNS AND ROSES – Boxy Fit Tee</SelectItem>
-                      <SelectItem value="Retro Stripe Tee">REBOUND KING – Boxy Fit Tee</SelectItem>
+                      <SelectItem value="GUNS AND ROSES – Boxy Fit Tee">
+                        GUNS AND ROSES – Boxy Fit Tee
+                      </SelectItem>
+
+                      <SelectItem value="REBOUND KING – Boxy Fit Tee">
+                        REBOUND KING – Boxy Fit Tee
+                      </SelectItem>
                       {/* <SelectItem value="Court Legend Tee">LE KING WHITE</SelectItem> */}
                       {/* <SelectItem value="Court Legend Tee">LE KING BLACK</SelectItem> */}
                     </SelectContent>
@@ -216,14 +228,15 @@ function ContactForm() {
               {/* Additional Information */}
               <div className="pt-4 border-t border-gray-200">
                 <Label htmlFor="message" className="uppercase text-xs tracking-wider font-bold text-black">
-                  Additional Notes
+                  Address *
                 </Label>
                 <Textarea
-                  id="message"
-                  value={formData.message}
-                  onChange={(e) => handleChange("message", e.target.value)}
-                  placeholder="Any special requests or questions?"
+                  id="address"
+                  value={formData.address}
+                  onChange={(e) => handleChange("address", e.target.value)}
+                  placeholder="Please enter your delivery address"
                   rows={4}
+                  required
                   className="mt-2 border-gray-300 focus:border-[#FF7518] focus:ring-[#FF7518] transition-all duration-300"
                 />
               </div>

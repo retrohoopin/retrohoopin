@@ -82,11 +82,16 @@ export default function ProductPage() {
                             size="lg"
                             disabled={!size}
                             className="w-full bg-black hover:bg-[#FF7518]"
-                            onClick={() =>
-                                router.push(
-                                    `/contact?product=${encodeURIComponent(product.name)}&size=${size}`
-                                )
-                            }
+                            onClick={() => {
+                                const orderData = {
+                                    product: product.name,
+                                    size: size
+                                }
+
+                                sessionStorage.setItem("orderData", JSON.stringify(orderData))
+
+                                router.push("/contact")
+                            }}
                         >
                             Order Now
                         </Button>

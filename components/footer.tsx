@@ -112,10 +112,10 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600">
             <p>&copy; 2025 RetroHoopin Co. All rights reserved.</p>
             <div className="flex gap-6">
-              <Link href="#" className="hover:text-[#FF7518] transition-colors duration-300">
+              <Link href="/privacy-policy" className="hover:text-[#FF7518] transition-colors duration-300">
                 Privacy Policy
               </Link>
-              <Link href="#" className="hover:text-[#FF7518] transition-colors duration-300">
+              <Link href="/terms-of-service" className="hover:text-[#FF7518] transition-colors duration-300">
                 Terms of Service
               </Link>
             </div>
